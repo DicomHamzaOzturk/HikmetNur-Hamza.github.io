@@ -1,0 +1,50 @@
+<section class="section" id="rsvp">
+  <div class="container card">
+    <div class="kicker">RSVP</div>
+    <h2 class="title" style="font-size:36px">Katılım Durumu</h2>
+
+    <form (ngSubmit)="submit()" [formGroup]="form" class="grid" style="gap:16px">
+      <div class="form-row">
+        <div>
+          <label>Ad Soyad *</label>
+          <input placeholder="Adınız Soyadınız" formControlName="fullName">
+          <small *ngIf="f.fullName.touched && f.fullName.invalid" class="helper">Lütfen adınızı girin.</small>
+        </div>
+        <div>
+          <label>Telefon *</label>
+          <input placeholder="+90 5xx xxx xx xx" formControlName="phone">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label>E-posta</label>
+          <input placeholder="ornek@mail.com" formControlName="email" type="email">
+        </div>
+        <div>
+          <label>Katılacak mısınız? *</label>
+          <select formControlName="attendance">
+            <option value="yes">Evet, geliyorum</option>
+            <option value="no">Üzgünüm, gelemiyorum</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label>Misafir Sayısı</label>
+          <input type="number" min="0" max="8" formControlName="guests">
+        </div>
+        <div>
+          <label>Not</label>
+          <input placeholder="Özel bir notunuz varsa" formControlName="note">
+        </div>
+      </div>
+
+      <div style="display:flex; gap:12px; align-items:center">
+        <button class="btn" type="submit">Gönder</button>
+        <span *ngIf="submitted()" class="helper">Teşekkürler! Yanıtınız kaydedildi (konsola yazıldı).</span>
+      </div>
+    </form>
+  </div>
+</section>

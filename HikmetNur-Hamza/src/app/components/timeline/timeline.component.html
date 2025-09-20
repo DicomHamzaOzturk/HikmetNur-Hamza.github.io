@@ -1,0 +1,12 @@
+<section class="section">
+  <div class="container card">
+    <div class="kicker">Program</div>
+    <h2 class="title" style="font-size:36px">Zaman Çizelgesi</h2>
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let it of items">
+        <h3 style="margin:0">{{it.time}} — {{it.title}}</h3>
+        <small *ngIf="it.note" class="helper">{{it.note}}</small>
+      </div>
+    </div>
+  </div>
+</section>
